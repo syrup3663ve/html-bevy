@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>html - bevy</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <button id="btn-1">【 - 】</button>
+    <button id="btn-2">【 + 】</button>
+
+    <script type="module">
+        import init, { run_game } from './target/wasm.js';
+        import { Counter } from './script.js';
+
+        let counter = new Counter();
+        document.getElementById("btn-1").onclick = () => counter.number--;
+        document.getElementById("btn-2").onclick = () => counter.number++;
+
+        init().then(() => run_game(counter));
+    </script>
+</body>
+</html>
